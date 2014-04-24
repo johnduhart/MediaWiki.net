@@ -12,7 +12,7 @@ using JsonObject = ServiceStack.Text.JsonObject;
 
 namespace MediaWiki.Actions
 {
-    class QueryAction : IApiAction<QueryResult>
+    public class QueryAction : IApiAction<QueryResult>
     {
         private readonly List<Query> _queries = new List<Query>();
 
