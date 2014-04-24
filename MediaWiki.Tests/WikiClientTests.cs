@@ -1,32 +1,21 @@
 ﻿using System;
 using MediaWiki.Queries.Meta;
-using NUnit.Framework;
+using Xunit;
 
 namespace MediaWiki.Tests
 {
     public class WikiClientTests
     {
-        [Test]
+        [Fact]
         public void Constructor_GivenValidApiUrl_Succeeds()
         {
             new WikiClient("https://www.mediawiki.org/w/api.php");
         }
 
-        [Test]
+        [Fact(Skip = "Not yet complete")]
         public void Constructor_GivenInvalidApiUrl_ThrowsException()
         {
             Assert.Throws<Exception>(() => new WikiClient("not a URL"));
-        }
-
-        
-        [Test, Ignore]
-        public void QueryTest()
-        {
-            var client = new WikiClient("https://www.mediawiki.org/w/api.php");
-            client.Query();
-
-            /*var flags = SiteInfoMetaQuery.SiteInfoProperties.General;
-            flags.ToString();*/
         }
     }
 }

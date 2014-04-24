@@ -2,7 +2,7 @@
 using MediaWiki.Models.SiteInfo;
 using MediaWiki.Queries.List;
 using MediaWiki.Queries.Meta;
-using NUnit.Framework;
+using Xunit;
 
 namespace MediaWiki.Tests
 {
@@ -10,7 +10,7 @@ namespace MediaWiki.Tests
     {
         public class TheBuildParameterListMethod
         {
-            [Test]
+            [Fact]
             public void HasProperModuleParameters()
             {
                 var queryAction = new QueryAction();
@@ -20,12 +20,12 @@ namespace MediaWiki.Tests
 
                 var parameters = queryAction.BuildParameterList();
 
-                Assert.That(parameters["list"], Is.EqualTo("allpages|allusers"));
-                Assert.That(parameters["meta"], Is.EqualTo("siteinfo"));
-                Assert.IsFalse(parameters.ContainsKey("prop"));
+                Assert.Equal(parameters["list"], "allpages|allusers");
+                Assert.Equal(parameters["meta"], "siteinfo");
+                Assert.False(parameters.ContainsKey("prop"));
             }
 
-            [Test]
+            [Fact]
             public void HandlesFlagEnumQueryParameters()
             {
 
@@ -37,10 +37,10 @@ namespace MediaWiki.Tests
 
                 var parameters = queryAction.BuildParameterList();
 
-                Assert.That(parameters["siprop"], Is.EqualTo("dbrepllag|extensions"));
+                Assert.Equal(parameters["siprop"], "dbrepllag|extensions");
             }
 
-            [Test]
+            [Fact]
             public void HandlesBoolQueryParameters()
             {
 
@@ -52,10 +52,10 @@ namespace MediaWiki.Tests
 
                 var parameters = queryAction.BuildParameterList();
 
-                Assert.That(parameters["sishowalldb"], Is.EqualTo("true"));
+                Assert.Equal(parameters["sishowalldb"], "true");
             }
 
-            [Test]
+            [Fact]
             public void HandlesStringQueryParameters()
             {
 
@@ -67,7 +67,7 @@ namespace MediaWiki.Tests
 
                 var parameters = queryAction.BuildParameterList();
 
-                Assert.That(parameters["siinlanguagecode"], Is.EqualTo("es"));
+                Assert.Equal(parameters["siinlanguagecode"], "es");
             }
         }
     }
