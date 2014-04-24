@@ -23,4 +23,30 @@ namespace MediaWiki
             Name = name;
         }
     }
+
+    [AttributeUsage(AttributeTargets.Enum)]
+    public class ApiEnumAttribute : Attribute
+    {
+    }
+
+    [AttributeUsage(AttributeTargets.Field)]
+    public class ApiEnumValueAttribute : Attribute
+    {
+        public ApiEnumValueAttribute(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; set; }
+    }
+
+    public class ApiEnumMappingAttribute : Attribute
+    {
+        public string Name { get; set; }
+
+        public ApiEnumMappingAttribute(string name)
+        {
+            Name = name;
+        }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using MediaWiki.Actions;
+using MediaWiki.Queries;
 using RestSharp.Extensions;
 
 namespace MediaWiki
@@ -23,7 +24,5 @@ namespace MediaWiki
                 .GetType()
                 .GetAttribute<QueryAttribute>();
         }
-
-
     }
 }

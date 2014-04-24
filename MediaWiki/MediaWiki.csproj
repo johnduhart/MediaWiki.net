@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\IApiAction.cs" />
     <Compile Include="Attributes.cs" />
     <Compile Include="Actions\QueryAction.cs" />
     <Compile Include="EnumExtensions.cs" />
@@ -72,8 +73,10 @@
     <Compile Include="Queries\List\AllPagesListQuery.cs" />
     <Compile Include="Queries\List\AllUsersListQuery.cs" />
     <Compile Include="Queries\List\ListQuery.cs" />
+    <Compile Include="Queries\Meta\MetaQuery.cs" />
     <Compile Include="Queries\Meta\SiteInfoMetaQuery.cs" />
     <Compile Include="Queries\Meta\UserInfoMetaQuery.cs" />
+    <Compile Include="Queries\Query.cs" />
     <Compile Include="QueryExtensions.cs" />
     <Compile Include="WikiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

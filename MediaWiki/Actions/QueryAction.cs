@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MediaWiki.Queries;
 using MediaWiki.Queries.List;
 using MediaWiki.Queries.Meta;
 using RestSharp;
@@ -10,15 +11,6 @@ using JsonObject = ServiceStack.Text.JsonObject;
 
 namespace MediaWiki.Actions
 {
-    internal interface IApiAction<out TResult>
-        where TResult : class
-    {
-        string Action { get; }
-        Method RequestMethod { get; }
-        Dictionary<string, string> BuildParameterList();
-        TResult BuildResult(JsonObject jsonObject);
-    }
-
     class QueryAction : IApiAction<QueryResult>
     {
         private readonly List<Query> _queries = new List<Query>();
@@ -176,15 +168,6 @@ namespace MediaWiki.Actions
             }
 
             return results;
-        }
-    }
-
-    public abstract class Query
-    {
-        public abstract object BuildResult(string json);
-        public virtual object BuildResultFullJson(JsonObject jsonObject)
-        {
-            throw new NotImplementedException();
         }
     }
 }

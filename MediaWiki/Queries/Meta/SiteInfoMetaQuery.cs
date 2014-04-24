@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediaWiki.Actions;
 using MediaWiki.Models.SiteInfo;
 using RestSharp.Extensions;
 using ServiceStack;
@@ -47,21 +44,6 @@ namespace MediaWiki.Queries.Meta
 
             return result;
         }
-
-        public override object BuildResult(string json)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class ApiEnumMappingAttribute : Attribute
-    {
-        public string Name { get; set; }
-
-        public ApiEnumMappingAttribute(string name)
-        {
-            Name = name;
-        }
     }
 
     [ApiEnum, Flags]
@@ -89,24 +71,5 @@ namespace MediaWiki.Queries.Meta
         Variables = 262144,
         Protocols = 524288,
         DefaultOptions = 1048576,
-    }
-
-    public abstract class MetaQuery : Query
-    { }
-
-    [AttributeUsage(AttributeTargets.Enum)]
-    public class ApiEnumAttribute : Attribute
-    {
-    }
-
-    [AttributeUsage(AttributeTargets.Field)]
-    public class ApiEnumValueAttribute : Attribute
-    {
-        public ApiEnumValueAttribute(string name)
-        {
-            Name = name;
-        }
-
-        public string Name { get; set; }
     }
 }
