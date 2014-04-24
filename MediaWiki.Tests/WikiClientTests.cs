@@ -19,7 +19,7 @@ namespace MediaWiki.Tests
         }
 
         
-        [Test]
+        [Test, Ignore]
         public void QueryTest()
         {
             var client = new WikiClient("https://www.mediawiki.org/w/api.php");

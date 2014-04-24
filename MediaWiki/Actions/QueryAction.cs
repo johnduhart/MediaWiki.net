@@ -4,6 +4,7 @@ using System.Linq;
 using MediaWiki.Queries;
 using MediaWiki.Queries.List;
 using MediaWiki.Queries.Meta;
+using MediaWiki.Results;
 using RestSharp;
 using RestSharp.Extensions;
 using ServiceStack;
@@ -126,10 +127,6 @@ namespace MediaWiki.Actions
                     else if (propertyType.IsValueType)
                     {
                         parameters.Add(parameterName, value.ToString());
-                    }
-                    else
-                    {
-                        // Help me jesus!
                     }
                 }
             }

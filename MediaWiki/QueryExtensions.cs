@@ -1,5 +1,4 @@
-﻿using MediaWiki.Actions;
-using MediaWiki.Queries;
+﻿using MediaWiki.Queries;
 using RestSharp.Extensions;
 
 namespace MediaWiki

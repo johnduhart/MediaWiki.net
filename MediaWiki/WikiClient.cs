@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MediaWiki.Actions;
-using MediaWiki.Models;
-using MediaWiki.Models.SiteInfo;
-using MediaWiki.Queries.List;
-using MediaWiki.Queries.Meta;
+﻿using MediaWiki.Actions;
+using MediaWiki.Queries;
+using MediaWiki.Results;
 using RestSharp;
 using ServiceStack.Text;
 using JsonObject = ServiceStack.Text.JsonObject;
@@ -36,26 +32,19 @@ namespace MediaWiki
             });
         }
 
-        public void Query()
+        public QueryResult Query(params Query[] queries)
         {
-            var query = new QueryAction();
-            query.AddQuery(new AllPagesListQuery
-            {
-                Namespace = 8,
-                From = "B",
-            });
-            query.AddQuery(new UserInfoMetaQuery());
-            query.AddQuery(new SiteInfoMetaQuery
-            {
-                Properties = SiteInfoProperties.Namespaces | SiteInfoProperties.General | SiteInfoProperties.DbReplicationLag
-            });
+            var queryAction = new QueryAction();
 
-            var response = Execute(query);
+            foreach (var query in queries)
+            {
+                queryAction.AddQuery(query);
+            }
 
-            var pages = AllPagesListQuery.ExtractResults(response);
+            return Execute(queryAction).Result;
         }
 
-        private ApiResult<TResult> Execute<TResult>(IApiAction<TResult> apiAction)
+        internal ApiResult<TResult> Execute<TResult>(IApiAction<TResult> apiAction)
             where TResult : class
         {
             var request = new RestRequest("", apiAction.RequestMethod);
@@ -80,19 +69,5 @@ namespace MediaWiki
 
             return result;
         }
-    }
-
-    public class ApiResult<T>
-        where T : class
-    {
-        public T Result { get; set; }
-
-        public IRestResponse Response { get; set; }
-    }
-
-    public class QueryResult
-    {
-        public Dictionary<string, object> List { get; set; }
-        public Dictionary<string, object> Meta { get; set; }
     }
 }

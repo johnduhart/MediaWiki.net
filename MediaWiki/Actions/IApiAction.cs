@@ -4,7 +4,7 @@ using JsonObject = ServiceStack.Text.JsonObject;
 
 namespace MediaWiki.Actions
 {
-    internal interface IApiAction<out TResult>
+    public interface IApiAction<out TResult>
         where TResult : class
     {
         string Action { get; }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MediaWiki.Actions;
+using MediaWiki.Results;
 using RestSharp.Extensions;
 using ServiceStack.Text;
 

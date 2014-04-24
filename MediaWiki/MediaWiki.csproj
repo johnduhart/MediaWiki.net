@@ -79,6 +79,8 @@
     <Compile Include="Queries\Meta\UserInfoMetaQuery.cs" />
     <Compile Include="Queries\Query.cs" />
     <Compile Include="QueryExtensions.cs" />
+    <Compile Include="Results\ApiResult.cs" />
+    <Compile Include="Results\QueryResult.cs" />
     <Compile Include="WikiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

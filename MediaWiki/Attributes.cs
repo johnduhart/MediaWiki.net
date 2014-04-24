@@ -2,6 +2,7 @@ using System;
 
 namespace MediaWiki
 {
+    [AttributeUsage(AttributeTargets.Class)]
     internal class QueryAttribute : Attribute
     {
         public string Name { get; set; }
@@ -15,6 +16,7 @@ namespace MediaWiki
         }
     }
 
+    [AttributeUsage(AttributeTargets.Property)]
     internal class QueryParameterAttribute : Attribute
     {
         public string Name { get; set; }
@@ -41,6 +43,7 @@ namespace MediaWiki
         public string Name { get; set; }
     }
 
+    [AttributeUsage(AttributeTargets.Property)]
     public class ApiEnumMappingAttribute : Attribute
     {
         public string Name { get; set; }
