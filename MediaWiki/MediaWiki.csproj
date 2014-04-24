@@ -64,6 +64,7 @@
     <Compile Include="Models\SiteInfo\RightsInfo.cs" />
     <Compile Include="Models\SiteInfo\SiteInfoDbReplicationLag.cs" />
     <Compile Include="Models\SiteInfo\SiteInfoGeneral.cs" />
+    <Compile Include="Models\SiteInfo\SiteInfoProperties.cs" />
     <Compile Include="Models\SiteInfo\SiteInfoResult.cs" />
     <Compile Include="Models\SiteInfo\Skin.cs" />
     <Compile Include="Models\SiteInfo\SpecialPageAlias.cs" />

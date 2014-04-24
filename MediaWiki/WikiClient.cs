@@ -2,6 +2,7 @@
 using System.Linq;
 using MediaWiki.Actions;
 using MediaWiki.Models;
+using MediaWiki.Models.SiteInfo;
 using MediaWiki.Queries.List;
 using MediaWiki.Queries.Meta;
 using RestSharp;

@@ -13,6 +13,17 @@ namespace MediaWiki.Queries.Meta
         [QueryParameter("prop")]
         public SiteInfoProperties Properties { get; set; }
 
+        [QueryParameter("showalldb")]
+        public bool ShowAllDb { get; set; }
+
+        [QueryParameter("numberingroup")]
+        public bool NumberInGroup { get; set; }
+
+        [QueryParameter("inlanguagecode")]
+        public string LanguageCode { get; set; }
+
+        // TODO: Missing: filteriw
+
         public override object BuildResultFullJson(JsonObject jsonObject)
         {
             var result = new SiteInfoResult();
@@ -44,32 +55,5 @@ namespace MediaWiki.Queries.Meta
 
             return result;
         }
-    }
-
-    [ApiEnum, Flags]
-    public enum SiteInfoProperties
-    {
-        General = 1,
-        Namespaces = 2,
-        NamespaceAliases = 4,
-        SpecialPageAliases = 8,
-        MagicWords = 16,
-        InterWikiMap = 32,
-        [ApiEnumValue("dbrepllag")]
-        DbReplicationLag = 64,
-        Statistics = 128,
-        UserGroups = 256,
-        Extensions = 512,
-        FileExtensions = 1024,
-        RightsInfo = 2048,
-        Restrictions = 4096,
-        Languages = 8192,
-        Skins = 16384,
-        ExtensionTags = 32768,
-        FunctionHooks = 65536,
-        ShowHooks = 131072,
-        Variables = 262144,
-        Protocols = 524288,
-        DefaultOptions = 1048576,
     }
 }

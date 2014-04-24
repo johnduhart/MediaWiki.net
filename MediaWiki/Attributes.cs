@@ -14,6 +14,7 @@ namespace MediaWiki
             Prefix = prefix;
         }
     }
+
     internal class QueryParameterAttribute : Attribute
     {
         public string Name { get; set; }
