@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace MediaWiki.Models.SiteInfo
 {
     [DataContract]
-    public class Interwiki
+    public class InterWiki
     {
         [DataMember(Name = "prefix")]
         public string Prefix { get; set; }

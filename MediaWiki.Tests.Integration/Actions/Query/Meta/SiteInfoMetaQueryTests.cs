@@ -77,6 +77,29 @@ namespace MediaWiki.Tests.Integration.Actions.Query.Meta
         }
 
         [IntegrationTest]
+        public void InterWikiMap()
+        {
+            var interWikiMap = ExecuteWithProperty(SiteInfoProperties.InterWikiMap).InterWikiMap;
+
+            Assert.NotNull(interWikiMap);
+            Assert.NotEmpty(interWikiMap);
+            Assert.True(interWikiMap.Any(iw => iw.Prefix == "en"));
+        }
+
+        [IntegrationTest]
+        public void DbReplicationLag()
+        {
+            var query = new SiteInfoMetaQuery { Properties = SiteInfoProperties.DbReplicationLag, ShowAllDb = true };
+            var result = _client.Query(query);
+
+            var dbReplicationLag = SiteInfoMetaQuery.ExtractResults(result).DbReplicationLag;
+
+            Assert.NotNull(dbReplicationLag);
+            Assert.NotEmpty(dbReplicationLag);
+            Assert.True(dbReplicationLag.Count > 1);
+        }
+
+        [IntegrationTest]
         public void Statistics()
         {
             var statistics = ExecuteWithProperty(SiteInfoProperties.Statistics).Statistics;

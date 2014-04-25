@@ -15,7 +15,7 @@ namespace MediaWiki.Models.SiteInfo
 
         public List<MagicWord> MagicWords { get; set; }
 
-        public List<Interwiki> InterwikiMap { get; set; }
+        public List<InterWiki> InterWikiMap { get; set; }
 
         [ApiEnumMapping("dbrepllag")]
         public List<SiteInfoDbReplicationLag> DbReplicationLag { get; set; }
