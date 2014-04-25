@@ -8,7 +8,7 @@ namespace MediaWiki.Models.SiteInfo
         [DataMember(Name = "name")]
         public string Name { get; set; }
 
-        [DataMember(Name = "subscribes")]
-        public string[] Subscribes { get; set; }
+        [DataMember(Name = "subscribers")]
+        public string[] Subscribers { get; set; }
     }
 }

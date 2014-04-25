@@ -66,8 +66,8 @@ namespace MediaWiki.Models.SiteInfo
 
         [DataMember(Name = "lang")]
         public string Language { get; set; }
-        
-        [DataMember(Name = "lang")]
+
+        [DataMember(Name = "fallback")]
         public string[] FallbackLanguages { get; set; }
 
         [DataMember(Name = "rtl")]
@@ -122,7 +122,7 @@ namespace MediaWiki.Models.SiteInfo
         public ushort[] ThumbLimits { get; set; }
 
         [DataMember(Name = "imagelimits")]
-        public ImageSize[] ImageLimits { get; set; }
+        public List<ImageSize> ImageLimits { get; set; }
 
         [DataMember(Name = "favicon")]
         public string FavIcon { get; set; }

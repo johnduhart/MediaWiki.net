@@ -22,7 +22,7 @@ namespace MediaWiki.Models.SiteInfo
 
         public Statistics Statistics { get; set; }
 
-        public List<Usergroup> Usergroups { get; set; }
+        public List<Usergroup> UserGroups { get; set; }
 
         public List<Extension> Extensions { get; set; }
 
@@ -36,7 +36,7 @@ namespace MediaWiki.Models.SiteInfo
 
         public List<Skin> Skins { get; set; }
 
-        public string[] ExtensionTag { get; set; }
+        public string[] ExtensionTags { get; set; }
 
         public string[] FunctionHooks { get; set; }
 

@@ -8,7 +8,7 @@ using ServiceStack.Text;
 namespace MediaWiki.Queries.Meta
 {
     [Query("siteinfo", "si", FullJson = true)]
-    public class SiteInfoMetaQuery : MetaQuery
+    public class SiteInfoMetaQuery : MetaQuery<SiteInfoMetaQuery, SiteInfoResult>
     {
         [QueryParameter("prop")]
         public SiteInfoProperties Properties { get; set; }

@@ -32,7 +32,7 @@ namespace MediaWiki
             });
         }
 
-        public QueryResult Query(params Query[] queries)
+        public ApiResult<QueryResult> Query(params Query[] queries)
         {
             var queryAction = new QueryAction();
 
@@ -41,7 +41,7 @@ namespace MediaWiki
                 queryAction.AddQuery(query);
             }
 
-            return Execute(queryAction).Result;
+            return Execute(queryAction);
         }
 
         internal ApiResult<TResult> Execute<TResult>(IApiAction<TResult> apiAction)
