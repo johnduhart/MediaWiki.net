@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\Query\List\AllPagesListQueryTests.cs" />
+    <Compile Include="Actions\Query\List\AllUsersListQueryTests.cs" />
     <Compile Include="Actions\Query\Meta\SiteInfoMetaQueryTests.cs" />
     <Compile Include="Actions\Query\Meta\UserInfoMetaQueryTests.cs" />
     <Compile Include="IntegrationTestAttribute.cs" />
