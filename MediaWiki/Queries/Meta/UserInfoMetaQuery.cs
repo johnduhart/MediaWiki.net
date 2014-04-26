@@ -6,10 +6,58 @@ using MediaWiki.Models;
 namespace MediaWiki.Queries.Meta
 {
     [Query("userinfo", "ui")]
-    public class UserInfoMetaQuery : MetaQuery<UserInfoMetaQuery, User>
+    public class UserInfoMetaQuery : MetaQuery<UserInfoMetaQuery, UserInfoMeta>
     {
         [QueryParameter("prop")]
         public UserInfoProperties Properties { get; set; }
+    }
+
+    public class UserInfoMeta : UserInfo
+    {
+        [DataMember(Name = "ratelimits")]
+        public Dictionary<string, ActionRateLimit> RateLimits { get; set; }
+
+        [DataMember(Name = "realname")]
+        public string RealName { get; set; }
+
+        [DataMember(Name = "acceptlang")]
+        public List<AcceptLang> AcceptLang { get; set; }
+    }
+
+    public class AcceptLang
+    {
+        [DataMember(Name = "*")]
+        public string Lang { get; set; }
+
+        [DataMember(Name = "q")]
+        public double Value { get; set; }
+    }
+
+    public class ActionRateLimit
+    {
+        [DataMember(Name = "anon")]
+        public RateLimit Anonymous { get; set; }
+
+        [DataMember(Name = "user")]
+        public RateLimit User { get; set; }
+
+        [DataMember(Name = "ip")]
+        public RateLimit Ip { get; set; }
+
+        [DataMember(Name = "subnet")]
+        public RateLimit Subnet { get; set; }
+
+        [DataMember(Name = "newbie")]
+        public RateLimit Newbie { get; set; }
+    }
+
+    public class RateLimit
+    {
+        [DataMember(Name = "hits")]
+        public uint Hits { get; set; }
+
+        [DataMember(Name = "seconds")]
+        public uint Seconds { get; set; }
     }
 
     public class UserInfo : User
@@ -20,8 +68,8 @@ namespace MediaWiki.Queries.Meta
         [DataMember(Name = "groups")]
         public List<string> Groups { get; set; }
 
-        [DataMember(Name = "implictgroups")]
-        public List<string> ImplictGroups { get; set; }
+        [DataMember(Name = "implicitgroups")]
+        public List<string> ImplicitGroups { get; set; }
 
         [DataMember(Name = "rights")]
         public List<string> Rights { get; set; }
@@ -67,7 +115,7 @@ namespace MediaWiki.Queries.Meta
         [ApiEnumValue("hasmsg")]
         HasMessage = (1 << 1),
         Groups = (1 << 2),
-        ImplictGroups = (1 << 3),
+        ImplicitGroups = (1 << 3),
         Rights = (1 << 4),
         ChangeableGroups = (1 << 5),
         Options = (1 << 6),
