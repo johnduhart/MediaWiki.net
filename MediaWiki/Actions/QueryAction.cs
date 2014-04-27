@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MediaWiki.Extensions;
 using MediaWiki.Queries;
 using MediaWiki.Queries.List;
 using MediaWiki.Queries.Meta;
 using MediaWiki.Results;
 using RestSharp;
 using RestSharp.Extensions;
-using ServiceStack;
+using ServiceStack.Text;
 using JsonObject = ServiceStack.Text.JsonObject;
 
 namespace MediaWiki.Actions
@@ -82,7 +83,7 @@ namespace MediaWiki.Actions
 
                 foreach (var parameter in queryParameters)
                 {
-                    var attribute = parameter.GetAttribute<QueryParameterAttribute>();
+                    var attribute = parameter.GetAttr<QueryParameterAttribute>();
                     var parameterName = parameterPrefix + attribute.Name;
 
                     var value = parameter.GetValue(query);

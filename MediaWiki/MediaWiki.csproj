@@ -33,8 +33,9 @@
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\packages\ServiceStack.Text.4.0.12\lib\net40\ServiceStack.Text.dll</HintPath>
+    <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,7 +50,8 @@
     <Compile Include="Actions\IApiAction.cs" />
     <Compile Include="Attributes.cs" />
     <Compile Include="Actions\QueryAction.cs" />
-    <Compile Include="EnumExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ReflectionExtensions.cs" />
     <Compile Include="Models\Namespace.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\SiteInfo\Extension.cs" />
@@ -78,7 +80,7 @@
     <Compile Include="Queries\Meta\SiteInfoMetaQuery.cs" />
     <Compile Include="Queries\Meta\UserInfoMetaQuery.cs" />
     <Compile Include="Queries\Query.cs" />
-    <Compile Include="QueryExtensions.cs" />
+    <Compile Include="Extensions\QueryExtensions.cs" />
     <Compile Include="Results\ApiResult.cs" />
     <Compile Include="Results\QueryResult.cs" />
     <Compile Include="WikiClient.cs" />

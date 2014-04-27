@@ -1,7 +1,7 @@
 ﻿using MediaWiki.Queries;
 using RestSharp.Extensions;
 
-namespace MediaWiki
+namespace MediaWiki.Extensions
 {
     internal static class QueryExtensions
     {

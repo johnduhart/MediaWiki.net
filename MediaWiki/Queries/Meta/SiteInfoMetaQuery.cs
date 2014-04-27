@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
+using MediaWiki.Extensions;
 using MediaWiki.Models.SiteInfo;
 using RestSharp.Extensions;
-using ServiceStack;
 using ServiceStack.Text;
 
 namespace MediaWiki.Queries.Meta
@@ -45,7 +45,7 @@ namespace MediaWiki.Queries.Meta
                         pi =>
                             pi.Name.ToLowerInvariant() == enumName ||
                             (pi.HasAttribute<ApiEnumMappingAttribute>() &&
-                             pi.GetAttribute<ApiEnumMappingAttribute>().Name == enumName));
+                             pi.GetAttr<ApiEnumMappingAttribute>().Name == enumName));
 
                 string json = jsonObject.Child(enumName);
                 object deserialized = JsonSerializer.DeserializeFromString(json, property.PropertyType);

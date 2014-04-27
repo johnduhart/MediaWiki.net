@@ -1,6 +1,5 @@
 ﻿using System;
-using RestSharp.Extensions;
-using ServiceStack;
+using MediaWiki.Extensions;
 
 namespace MediaWiki
 {
