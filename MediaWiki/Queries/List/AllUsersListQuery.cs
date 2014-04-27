@@ -5,13 +5,13 @@ namespace MediaWiki.Queries.List
     [Query("allusers", "au")]
     public class AllUsersListQuery : ListQuery<AllUsersListQuery, User>
     {
-        [QueryParameter("from")]
+        [QueryParameter]
         public string From { get; set; }
 
-        [QueryParameter("to")]
+        [QueryParameter]
         public string To { get; set; }
 
-        [QueryParameter("prefix")]
+        [QueryParameter]
         public string Prefix { get; set; }
     }
 }
