@@ -94,7 +94,7 @@ namespace MediaWiki.Tests.Integration.Actions.Query.List
         public void FilterRedirectsParameter()
         {
             const string redirectPage = "$1";
-            var allPages = ExecuteQuery(new AllPagesListQuery { FilterRedirects = FilterReadircts.Redirects });
+            var allPages = ExecuteQuery(new AllPagesListQuery { FilterRedirects = FilterReadirects.Redirects });
 
             Assert.NotNull(allPages);
             Assert.NotEmpty(allPages);
@@ -105,7 +105,7 @@ namespace MediaWiki.Tests.Integration.Actions.Query.List
         public void FilterNonRedirectsParameter()
         {
             const string redirectPage = "$1";
-            var allPages = ExecuteQuery(new AllPagesListQuery { FilterRedirects = FilterReadircts.NonRedirects });
+            var allPages = ExecuteQuery(new AllPagesListQuery { FilterRedirects = FilterReadirects.NonRedirects });
 
             Assert.NotNull(allPages);
             Assert.NotEmpty(allPages);

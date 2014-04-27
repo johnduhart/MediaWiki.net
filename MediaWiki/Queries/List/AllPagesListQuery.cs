@@ -21,11 +21,11 @@ namespace MediaWiki.Queries.List
         public uint Namespace { get; set; }
 
         [QueryParameter("filterredir")]
-        public FilterReadircts FilterRedirects { get; set; }
+        public FilterReadirects FilterRedirects { get; set; }
     }
 
     [ApiEnum]
-    public enum FilterReadircts
+    public enum FilterReadirects
     {
         All,
         Redirects,
