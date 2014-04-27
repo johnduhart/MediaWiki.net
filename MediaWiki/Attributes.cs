@@ -21,6 +21,10 @@ namespace MediaWiki
     {
         public string Name { get; set; }
 
+        public QueryParameterAttribute()
+        {
+        }
+
         public QueryParameterAttribute(string name)
         {
             Name = name;

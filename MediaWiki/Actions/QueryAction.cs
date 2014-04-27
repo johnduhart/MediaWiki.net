@@ -84,7 +84,8 @@ namespace MediaWiki.Actions
                 foreach (var parameter in queryParameters)
                 {
                     var attribute = parameter.GetAttr<QueryParameterAttribute>();
-                    var parameterName = parameterPrefix + attribute.Name;
+                    var name = attribute.Name ?? parameter.Name.ToLowerInvariant();
+                    var parameterName = parameterPrefix + name;
 
                     var value = parameter.GetValue(query);
                     if (value == null)

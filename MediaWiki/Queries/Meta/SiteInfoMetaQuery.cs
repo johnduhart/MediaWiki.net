@@ -13,10 +13,10 @@ namespace MediaWiki.Queries.Meta
         [QueryParameter("prop")]
         public SiteInfoProperties Properties { get; set; }
 
-        [QueryParameter("showalldb")]
+        [QueryParameter]
         public bool ShowAllDb { get; set; }
 
-        [QueryParameter("numberingroup")]
+        [QueryParameter]
         public bool NumberInGroup { get; set; }
 
         [QueryParameter("inlanguagecode")]

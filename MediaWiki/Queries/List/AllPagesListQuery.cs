@@ -5,19 +5,19 @@ namespace MediaWiki.Queries.List
     [Query("allpages", "ap")]
     public class AllPagesListQuery : ListQuery<AllPagesListQuery, Page>
     {
-        [QueryParameter("from")]
+        [QueryParameter]
         public string From { get; set; }
 
-        [QueryParameter("continue")]
+        [QueryParameter]
         public string Continue { get; set; }
 
-        [QueryParameter("to")]
+        [QueryParameter]
         public string To { get; set; }
 
-        [QueryParameter("prefix")]
+        [QueryParameter]
         public string Prefix { get; set; }
 
-        [QueryParameter("namespace")]
+        [QueryParameter]
         public uint Namespace { get; set; }
 
         [QueryParameter("filterredir")]
